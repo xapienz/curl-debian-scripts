@@ -53,8 +53,7 @@ Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: ca-certificates
 Pre-Depends: ${misc:Pre-Depends}
-Conflicts: libcurl3
-Replaces: libcurl3
+Provides: libcurl3 (= ${binary:Version})
 Multi-Arch: same
 Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
  libcurl is an easy-to-use client-side URL transfer library, supporting DICT,

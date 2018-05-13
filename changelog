@@ -1,3 +1,9 @@
+curl (7.58.0-2ubuntu3ppa1) bionic; urgency=medium
+
+  * Support libcurl3 and libcurl4 at the same time.
+
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 13 May 2018 13:34:14 -0700
+
 curl (7.58.0-2ubuntu3) bionic; urgency=medium
 
   * SECURITY UPDATE: FTP path trickery leads to NIL byte OOB write
