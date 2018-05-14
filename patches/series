@@ -6,6 +6,7 @@
 CVE-2018-1000120.patch
 CVE-2018-1000121.patch
 CVE-2018-1000122.patch
+12_curlvers.patch
 
 # do not add patches below
 90_gnutls.patch
