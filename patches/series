@@ -3,10 +3,11 @@
 07_do-not-disable-debug-symbols.patch
 08_enable-zsh.patch
 11_omit-directories-from-config.patch
+12_curlvers.patch
+13_ssl3_syms.patch
 CVE-2018-1000120.patch
 CVE-2018-1000121.patch
 CVE-2018-1000122.patch
-12_curlvers.patch
 
 # do not add patches below
 90_gnutls.patch
