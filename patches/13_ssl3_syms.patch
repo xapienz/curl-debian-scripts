@@ -37,14 +37,22 @@ Index: curl-7.58.0/lib/escape.c
 ===================================================================
 --- curl-7.58.0.orig/lib/escape.c
 +++ curl-7.58.0/lib/escape.c
-@@ -240,3 +240,8 @@ void curl_free(void *p)
+@@ -240,3 +240,16 @@ void curl_free(void *p)
  {
    free(p);
  }
 +// curl3 symbols go below:
 +#ifdef USE_OPENSSL
++__asm__(".symver curl3_easy_escape,curl_easy_escape@CURL_OPENSSL_3");
++void curl3_easy_escape(void) __attribute__ ((weak, alias ("curl_easy_escape")));
++__asm__(".symver curl3_easy_unescape,curl_easy_unescape@CURL_OPENSSL_3");
++void curl3_easy_unescape(void) __attribute__ ((weak, alias ("curl_easy_unescape")));
++__asm__(".symver curl3_escape,curl_escape@CURL_OPENSSL_3");
++void curl3_escape(void) __attribute__ ((weak, alias ("curl_escape")));
 +__asm__(".symver curl3_free,curl_free@CURL_OPENSSL_3");
 +void curl3_free(void) __attribute__ ((weak, alias ("curl_free")));
++__asm__(".symver curl3_unescape,curl_unescape@CURL_OPENSSL_3");
++void curl3_unescape(void) __attribute__ ((weak, alias ("curl_unescape")));
 +#endif
 Index: curl-7.58.0/lib/formdata.c
 ===================================================================
@@ -67,12 +75,14 @@ Index: curl-7.58.0/lib/mime.c
 ===================================================================
 --- curl-7.58.0.orig/lib/mime.c
 +++ curl-7.58.0/lib/mime.c
-@@ -1985,3 +1985,26 @@ CURLcode Curl_mime_add_header(struct cur
+@@ -1985,3 +1985,30 @@ CURLcode Curl_mime_add_header(struct cur
  }
  
  #endif /* !CURL_DISABLE_HTTP || !CURL_DISABLE_SMTP || !CURL_DISABLE_IMAP */
 +// curl3 symbols go below:
 +#ifdef USE_OPENSSL
++__asm__(".symver curl3_mime_addpart,curl_mime_addpart@CURL_OPENSSL_3");
++void curl3_mime_addpart(void) __attribute__ ((weak, alias ("curl_mime_addpart")));
 +__asm__(".symver curl3_mime_data,curl_mime_data@CURL_OPENSSL_3");
 +void curl3_mime_data(void) __attribute__ ((weak, alias ("curl_mime_data")));
 +__asm__(".symver curl3_mime_data_cb,curl_mime_data_cb@CURL_OPENSSL_3");
@@ -87,6 +97,8 @@ Index: curl-7.58.0/lib/mime.c
 +void curl3_mime_free(void) __attribute__ ((weak, alias ("curl_mime_free")));
 +__asm__(".symver curl3_mime_headers,curl_mime_headers@CURL_OPENSSL_3");
 +void curl3_mime_headers(void) __attribute__ ((weak, alias ("curl_mime_headers")));
++__asm__(".symver curl3_mime_init,curl_mime_init@CURL_OPENSSL_3");
++void curl3_mime_init(void) __attribute__ ((weak, alias ("curl_mime_init")));
 +__asm__(".symver curl3_mime_name,curl_mime_name@CURL_OPENSSL_3");
 +void curl3_mime_name(void) __attribute__ ((weak, alias ("curl_mime_name")));
 +__asm__(".symver curl3_mime_subparts,curl_mime_subparts@CURL_OPENSSL_3");
@@ -98,12 +110,14 @@ Index: curl-7.58.0/lib/mprintf.c
 ===================================================================
 --- curl-7.58.0.orig/lib/mprintf.c
 +++ curl-7.58.0/lib/mprintf.c
-@@ -1171,3 +1171,22 @@ int curl_mvfprintf(FILE *whereto, const
+@@ -1171,3 +1171,26 @@ int curl_mvfprintf(FILE *whereto, const
  {
    return dprintf_formatf(whereto, fputc, format, ap_save);
  }
 +// curl3 symbols go below:
 +#ifdef USE_OPENSSL
++__asm__(".symver curl3_maprintf,curl_maprintf@CURL_OPENSSL_3");
++void curl3_maprintf(void) __attribute__ ((weak, alias ("curl_maprintf")));
 +__asm__(".symver curl3_mfprintf,curl_mfprintf@CURL_OPENSSL_3");
 +void curl3_mfprintf(void) __attribute__ ((weak, alias ("curl_mfprintf")));
 +__asm__(".symver curl3_mprintf,curl_mprintf@CURL_OPENSSL_3");
@@ -112,6 +126,8 @@ Index: curl-7.58.0/lib/mprintf.c
 +void curl3_msnprintf(void) __attribute__ ((weak, alias ("curl_msnprintf")));
 +__asm__(".symver curl3_msprintf,curl_msprintf@CURL_OPENSSL_3");
 +void curl3_msprintf(void) __attribute__ ((weak, alias ("curl_msprintf")));
++__asm__(".symver curl3_mvaprintf,curl_mvaprintf@CURL_OPENSSL_3");
++void curl3_mvaprintf(void) __attribute__ ((weak, alias ("curl_mvaprintf")));
 +__asm__(".symver curl3_mvfprintf,curl_mvfprintf@CURL_OPENSSL_3");
 +void curl3_mvfprintf(void) __attribute__ ((weak, alias ("curl_mvfprintf")));
 +__asm__(".symver curl3_mvprintf,curl_mvprintf@CURL_OPENSSL_3");
@@ -125,7 +141,7 @@ Index: curl-7.58.0/lib/multi.c
 ===================================================================
 --- curl-7.58.0.orig/lib/multi.c
 +++ curl-7.58.0/lib/multi.c
-@@ -3086,3 +3086,32 @@ void Curl_multi_dump(struct Curl_multi *
+@@ -3086,3 +3086,34 @@ void Curl_multi_dump(struct Curl_multi *
    }
  }
  #endif
@@ -139,6 +155,8 @@ Index: curl-7.58.0/lib/multi.c
 +void curl3_multi_cleanup(void) __attribute__ ((weak, alias ("curl_multi_cleanup")));
 +__asm__(".symver curl3_multi_fdset,curl_multi_fdset@CURL_OPENSSL_3");
 +void curl3_multi_fdset(void) __attribute__ ((weak, alias ("curl_multi_fdset")));
++__asm__(".symver curl3_multi_info_read,curl_multi_info_read@CURL_OPENSSL_3");
++void curl3_multi_info_read(void) __attribute__ ((weak, alias ("curl_multi_info_read")));
 +__asm__(".symver curl3_multi_init,curl_multi_init@CURL_OPENSSL_3");
 +void curl3_multi_init(void) __attribute__ ((weak, alias ("curl_multi_init")));
 +__asm__(".symver curl3_multi_perform,curl_multi_perform@CURL_OPENSSL_3");
@@ -226,4 +244,47 @@ Index: curl-7.58.0/lib/vtls/vtls.c
 +#ifdef USE_OPENSSL
 +__asm__(".symver curl3_global_sslset,curl_global_sslset@CURL_OPENSSL_3");
 +void curl3_global_sslset(void) __attribute__ ((weak, alias ("curl_global_sslset")));
++#endif
+Index: curl-7.58.0/lib/getenv.c
+===================================================================
+--- curl-7.58.0.orig/lib/getenv.c
++++ curl-7.58.0/lib/getenv.c
+@@ -52,3 +52,8 @@ char *curl_getenv(const char *v)
+ {
+   return GetEnv(v);
+ }
++// curl3 symbols go below:
++#ifdef USE_OPENSSL
++__asm__(".symver curl3_getenv,curl_getenv@CURL_OPENSSL_3");
++void curl3_getenv(void) __attribute__ ((weak, alias ("curl_getenv")));
++#endif
+Index: curl-7.58.0/lib/http2.c
+===================================================================
+--- curl-7.58.0.orig/lib/http2.c
++++ curl-7.58.0/lib/http2.c
+@@ -2284,3 +2284,10 @@ char *curl_pushheader_byname(struct curl
+ }
+ 
+ #endif /* USE_NGHTTP2 */
++// curl3 symbols go below:
++#ifdef USE_OPENSSL
++__asm__(".symver curl3_pushheader_byname,curl_pushheader_byname@CURL_OPENSSL_3");
++void curl3_pushheader_byname(void) __attribute__ ((weak, alias ("curl_pushheader_byname")));
++__asm__(".symver curl3_pushheader_bynum,curl_pushheader_bynum@CURL_OPENSSL_3");
++void curl3_pushheader_bynum(void) __attribute__ ((weak, alias ("curl_pushheader_bynum")));
++#endif
+Index: curl-7.58.0/lib/version.c
+===================================================================
+--- curl-7.58.0.orig/lib/version.c
++++ curl-7.58.0/lib/version.c
+@@ -454,3 +454,10 @@ curl_version_info_data *curl_version_inf
+   initialized = true;
+   return &version_info;
+ }
++// curl3 symbols go below:
++#ifdef USE_OPENSSL
++__asm__(".symver curl3_version,curl_version@CURL_OPENSSL_3");
++void curl3_version(void) __attribute__ ((weak, alias ("curl_version")));
++__asm__(".symver curl3_version_info,curl_version_info@CURL_OPENSSL_3");
++void curl3_version_info(void) __attribute__ ((weak, alias ("curl_version_info")));
 +#endif

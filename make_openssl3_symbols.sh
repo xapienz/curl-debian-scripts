@@ -11,7 +11,7 @@ if grep -q "$curl3_syms_header" "$source_file"; then
 fi
 
 allowed_symbols_list=$(cat $syms_file | sed -rn 's/curl_(\w*)@.*$/\1/p')
-general_symbols=$(cat $source_file | sed -rn 's/^\w* curl_(\w*)\(.*$/\1/p')
+general_symbols=$(cat $source_file | sed -rn 's/^\w* [\*]{0,1}curl_(\w*)\(.*$/\1/p')
 struct_symbols=$(cat $source_file | sed -rn 's/^struct \w* [\*]{0,1}curl_(\w*)\(.*$/\1/p')
 found_symbols=$(echo -e "$general_symbols\n$struct_symbols" | sort | uniq)
 symbols=""

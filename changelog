@@ -1,3 +1,10 @@
+curl (7.58.0-2ubuntu3ppa2) bionic; urgency=medium
+
+  * Support libcurl3 and libcurl4 at the same time.
+  * Fixed adding of symbols which return pointer types.
+
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 13 May 2018 23:36:56 -0700
+
 curl (7.58.0-2ubuntu3ppa1) bionic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
