@@ -1,13 +1,78 @@
-curl (7.58.0-2ubuntu3.2) bionic-security; urgency=medium
+curl (7.60.0-2ubuntu1) cosmic; urgency=low
 
-  * SECURITY UPDATE: SMTP send heap buffer overflow
-    - debian/patches/CVE-2018-0500.patch: use the upload buffer size for
-      scratch buffer malloc in lib/smtp.c.
-    - CVE-2018-0500
+  * Merge from Debian unstable.  Remaining changes:
+    - Use an if statement to conditionally disable libssh2 in Ubuntu-only
+  * Dropped changes, included in Debian:
+    - Build-depend on libssl-dev instead of libssl1.0-dev.
+    - Rename libcurl3 to libcurl4, because libcurl exposes an SSL_CTX via
+      CURLOPT_SSL_CTX_FUNCTION, and this object changes incompatibly between
+      openssl 1.0 and openssl 1.1.
+    - debian/patches/03_keep_symbols_compat.patch: drop, since we are no longer
+      claiming compatibility.
+    - debian/patches/90_gnutls.patch: Retain symbol versioning compatibility
+      for non-OpenSSL builds.
+  * Dropped changes, include upstream:
+    - SECURITY UPDATE: FTP path trickery leads to NIL byte OOB write
+      - debian/patches/CVE-2018-1000120.patch: reject path components with
+        control codes in lib/ftp.c, add test to tests/*.
+      - CVE-2018-1000120
+    - SECURITY UPDATE: LDAP NULL pointer dereference
+      - debian/patches/CVE-2018-1000121.patch: check ldap_get_attribute_ber()
+        results for NULL before using in lib/openldap.c.
+      - CVE-2018-1000121
+    - SECURITY UPDATE: RTSP RTP buffer over-read
+      - debian/patches/CVE-2018-1000122.patch: make sure excess reads don't
+        go beyond buffer end in lib/transfer.c.
+      - CVE-2018-1000122
+    - SECURITY UPDATE: FTP shutdown response buffer overflow
+      - debian/patches/CVE-2018-1000300.patch: check data size in
+        lib/pingpong.c.
+      - CVE-2018-1000303
+    - SECURITY UPDATE: RTSP bad headers buffer over-read
+      - debian/patches/CVE-2018-1000301.patch: restore buffer pointer when
+        bad response-line is parsed in lib/http.c.
+      - CVE-2018-1000301
 
- -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 04 Jul 2018 10:18:17 -0400
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Mon, 04 Jun 2018 16:27:47 -0700
 
-curl (7.58.0-2ubuntu3.1) bionic-security; urgency=medium
+curl (7.60.0-2) unstable; urgency=medium
+
+  [ Steve Langasek ]
+  * Build-depend on libssl-dev instead of libssl1.0-dev.
+  * Rename libcurl3 to libcurl4, because libcurl exposes an SSL_CTX via
+    CURLOPT_SSL_CTX_FUNCTION, and this object changes incompatibly between
+    openssl 1.0 and openssl 1.1.
+  * debian/patches/03_keep_symbols_compat.patch: drop, since we are no longer
+    claiming compatibility.
+  * debian/patches/90_gnutls.patch: Retain symbol versioning compatibility for
+    non-OpenSSL builds.  Closes: #858398.
+  * Adjust libssl1.1 vs libssl1.0 Suggests/Conflicts; thanks, Adrian Bunk
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Wed, 23 May 2018 20:25:39 +0100
+
+curl (7.60.0-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #891997, #893546, #898856)
+    + Fix use of IPv6 literals with NO_PROXY
+    + Fix NIL byte out of bounds write due to FTP path trickery
+      as per CVE-2018-1000120
+      https://curl.haxx.se/docs/adv_2018-9cd6.html
+    + Fix LDAP NULL pointer dereference as per CVE-2018-1000121
+      https://curl.haxx.se/docs/adv_2018-97a2.html
+    + Fix RTSP RTP buffer over-read as per CVE-2018-1000122
+      https://curl.haxx.se/docs/adv_2018-b047.html
+    + Fix heap buffer overflow when closing down an FTP connection
+      with very long server command replies as per CVE-2018-1000300
+      https://curl.haxx.se/docs/adv_2018-82c2.html
+    + Fix heap buffer over-read when parsing bad RTSP headers
+      as per CVE-2018-1000301
+      https://curl.haxx.se/docs/adv_2018-b138.html
+  * Refresh patches
+  * Bump Standards-Version to 4.1.4 (no changes needed)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Fri, 18 May 2018 20:21:17 +0100
+
+curl (7.58.0-2ubuntu4) cosmic; urgency=medium
 
   * SECURITY UPDATE: FTP shutdown response buffer overflow
     - debian/patches/CVE-2018-1000300.patch: check data size in
@@ -18,7 +83,7 @@ curl (7.58.0-2ubuntu3.1) bionic-security; urgency=medium
       bad response-line is parsed in lib/http.c.
     - CVE-2018-1000301
 
- -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 08 May 2018 13:47:34 -0400
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 16 May 2018 11:54:05 -0400
 
 curl (7.58.0-2ubuntu3) bionic; urgency=medium
 
@@ -2817,3 +2882,4 @@ curl (5.8-1) unstable; urgency=low
   * Initial Release.
 
  -- Leon Breedt <ljb@debian.org>  Sun,  9 May 1999 18:55:48 +0200
+

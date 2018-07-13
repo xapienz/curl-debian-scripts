@@ -18,7 +18,7 @@ Last-Update: 2015-08-12
 +LDADD = $(LIBDIR)/libcurl-nss.la
  endif
  
- # Makefile.inc provides the check_PROGRAMS and COMPLICATED_EXAMPLES defines
+ # This might hold -Werror
 --- a/lib/Makefile.am
 +++ b/lib/Makefile.am
 @@ -32,7 +32,7 @@
@@ -116,7 +116,7 @@ Last-Update: 2015-08-12
  curl_LDFLAGS = @LIBMETALINK_LDFLAGS@
 --- a/tests/libtest/Makefile.am
 +++ b/tests/libtest/Makefile.am
-@@ -53,11 +53,11 @@
+@@ -55,11 +55,11 @@
  LIBS = $(BLANK_AT_MAKETIME)
  
  if USE_EXPLICIT_LIB_DEPS
