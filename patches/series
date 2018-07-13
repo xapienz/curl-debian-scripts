@@ -5,12 +5,6 @@
 11_omit-directories-from-config.patch
 12_curlvers.patch
 13_ssl3_syms.patch
-CVE-2018-1000120.patch
-CVE-2018-1000121.patch
-CVE-2018-1000122.patch
-CVE-2018-1000300.patch
-CVE-2018-1000301.patch
-CVE-2018-0500.patch
 
 # do not add patches below
 90_gnutls.patch
