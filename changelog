@@ -1,4 +1,13 @@
-curl (7.58.0-2ubuntu4) cosmic; urgency=medium
+curl (7.58.0-2ubuntu3.2) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: SMTP send heap buffer overflow
+    - debian/patches/CVE-2018-0500.patch: use the upload buffer size for
+      scratch buffer malloc in lib/smtp.c.
+    - CVE-2018-0500
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 04 Jul 2018 10:18:17 -0400
+
+curl (7.58.0-2ubuntu3.1) bionic-security; urgency=medium
 
   * SECURITY UPDATE: FTP shutdown response buffer overflow
     - debian/patches/CVE-2018-1000300.patch: check data size in
@@ -9,7 +18,7 @@ curl (7.58.0-2ubuntu4) cosmic; urgency=medium
       bad response-line is parsed in lib/http.c.
     - CVE-2018-1000301
 
- -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 16 May 2018 11:54:05 -0400
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 08 May 2018 13:47:34 -0400
 
 curl (7.58.0-2ubuntu3) bionic; urgency=medium
 
