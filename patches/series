@@ -3,6 +3,7 @@
 07_do-not-disable-debug-symbols.patch
 08_enable-zsh.patch
 11_omit-directories-from-config.patch
+CVE-2018-14618.patch
 12_curlvers.patch
 13_ssl3_syms.patch
 

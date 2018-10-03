@@ -19,6 +19,7 @@ CONFIGURE_ARGS = -- --disable-dependency-tracking		\
 	--includedir=/usr/include/$(DEB_HOST_MULTIARCH)		\
 	--with-zsh-functions-dir=/usr/share/zsh/vendor-completions
 
+# disable libssh2 on Ubuntu (see #888449)
 ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
 	CONFIGURE_ARGS += --without-libssh2
 endif
@@ -50,14 +51,11 @@ override_dh_auto_configure:
 		(cd debian/$$flavour && ./buildconf && cp ../../ltmain.sh .) \
 	done
 	cd debian/build && dh_auto_configure ${CONFIGURE_ARGS}		\
-		--with-ca-path=/etc/ssl/certs				\
-		--with-ca-bundle=/etc/ssl/certs/ca-certificates.crt
+		--with-ca-path=/etc/ssl/certs
 	cd debian/build-gnutls &&  dh_auto_configure ${CONFIGURE_ARGS}	\
 		--with-ca-path=/etc/ssl/certs				\
-		--with-ca-bundle=/etc/ssl/certs/ca-certificates.crt	\
 		--without-ssl --with-gnutls
 	cd debian/build-nss && dh_auto_configure ${CONFIGURE_ARGS}	\
-		--with-ca-bundle=/etc/ssl/certs/ca-certificates.crt	\
 		--without-ssl --with-nss
 
 override_dh_auto_build:
