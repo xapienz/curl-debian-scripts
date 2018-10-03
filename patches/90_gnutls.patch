@@ -1,9 +1,7 @@
 Description: Build with GnuTLS.
- Also retains symbol versioning compatibility with previous releases
 Origin: vendor
 Forwarded: not-needed
-Author: Ramakrishnan Muthukrishnan <vu3rdd@gmail.com>,
-        Steve Langasek <steve.langasek@ubuntu.com>
+Author: Ramakrishnan Muthukrishnan <vu3rdd@gmail.com>
 Reviewed-by: Alessandro Ghedini <ghedo@debian.org>
 Last-Update: 2018-05-23
 

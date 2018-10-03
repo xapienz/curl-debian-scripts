@@ -3,6 +3,7 @@
 07_do-not-disable-debug-symbols.patch
 08_enable-zsh.patch
 11_omit-directories-from-config.patch
+CVE-2018-14618.patch
 
 # do not add patches below
 90_gnutls.patch
