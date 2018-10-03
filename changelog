@@ -1,8 +1,17 @@
-curl (7.58.0-2ubuntu3.2ppa1) bionic; urgency=medium
+curl (7.58.0-2ubuntu3.3ppa2) bionic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Thu, 12 Jul 2018 20:51:20 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Wed, 03 Oct 2018 01:32:29 -0700
+
+curl (7.58.0-2ubuntu3.3) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: Buffer overrun
+    - debian/patches/CVE-2018-14618.patch: fix in
+      lib/curl_ntlm_core.c.
+    - CVE-2018-14618
+
+ -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Thu, 13 Sep 2018 13:06:47 -0300
 
 curl (7.58.0-2ubuntu3.2) bionic-security; urgency=medium
 

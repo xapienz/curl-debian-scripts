@@ -13,5 +13,6 @@ CVE-2018-1000301.patch
 CVE-2018-0500.patch
 
 # do not add patches below
+CVE-2018-14618.patch
 90_gnutls.patch
 99_nss.patch
