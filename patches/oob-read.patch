@@ -1,0 +1,30 @@
+From 8490ab449e98b9861a8afdc04f06956e94692ebf Mon Sep 17 00:00:00 2001
+From: Daniel Stenberg <daniel@haxx.se>
+Date: Sun, 28 Oct 2018 01:33:23 +0200
+Subject: [PATCH] voutf: fix bad arethmetic when outputting warnings to stderr
+
+Reported-by: Brian Carpenter
+---
+ src/tool_msgs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/tool_msgs.c b/src/tool_msgs.c
+index 832ed8147..f5e1df25f 100644
+--- a/src/tool_msgs.c
++++ b/src/tool_msgs.c
+@@ -65,11 +65,11 @@ static void voutf(struct GlobalConfig *config,
+           cut = width-1;
+ 
+         (void)fwrite(ptr, cut + 1, 1, config->errors);
+         fputs("\n", config->errors);
+         ptr += cut + 1; /* skip the space too */
+-        len -= cut;
++        len -= cut + 1;
+       }
+       else {
+         fputs(ptr, config->errors);
+         len = 0;
+       }
+-- 
+2.19.1
+
