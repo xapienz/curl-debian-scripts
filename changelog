@@ -1,8 +1,22 @@
-curl (7.58.0-2ubuntu3.3ppa2) bionic; urgency=medium
+curl (7.58.0-2ubuntu3.5ppa1) bionic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Wed, 03 Oct 2018 01:32:29 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Wed, 03 Nov 2018 21:18:35 -0700
+
+curl (7.58.0-2ubuntu3.5) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: SASL password overflow via integer overflow
+    - debian/patches/CVE-2018-16839-pre.patch: fix integer overflow check
+      in lib/curl_ntlm_core.c, lib/curl_setup.h, lib/vauth/cleartext.c.
+    - debian/patches/CVE-2018-16839.patch: fix check in
+      lib/vauth/cleartext.c.
+    - CVE-2018-16839
+  * SECURITY UPDATE: warning message out-of-buffer read
+    - debian/patches/oob-read.patch: fix bad arithmetic in src/tool_msgs.c.
+    - CVE number pending
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Mon, 29 Oct 2018 08:10:57 -0400
 
 curl (7.58.0-2ubuntu3.3) bionic-security; urgency=medium
 
