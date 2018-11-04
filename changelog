@@ -1,3 +1,18 @@
+curl (7.61.0-1ubuntu2.2) cosmic-security; urgency=medium
+
+  * SECURITY UPDATE: SASL password overflow via integer overflow
+    - debian/patches/CVE-2018-16839.patch: fix check in
+      lib/vauth/cleartext.c.
+    - CVE-2018-16839
+  * SECURITY UPDATE: use-after-free in handle close
+    - debian/patches/CVE-2018-16840.patch: fix issue in lib/url.c.
+    - CVE-2018-16840
+  * SECURITY UPDATE: warning message out-of-buffer read
+    - debian/patches/oob-read.patch: fix bad arithmetic in src/tool_msgs.c.
+    - CVE number pending
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Mon, 29 Oct 2018 08:08:34 -0400
+
 curl (7.61.0-1ubuntu2) cosmic; urgency=high
 
   * No change rebuild against openssl 1.1.1 with TLS 1.3 support.

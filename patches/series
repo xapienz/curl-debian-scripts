@@ -4,6 +4,9 @@
 08_enable-zsh.patch
 11_omit-directories-from-config.patch
 CVE-2018-14618.patch
+CVE-2018-16839.patch
+CVE-2018-16840.patch
+oob-read.patch
 
 # do not add patches below
 90_gnutls.patch
