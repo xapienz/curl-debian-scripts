@@ -1,3 +1,20 @@
+curl (7.61.0-1ubuntu2.3) cosmic-security; urgency=medium
+
+  * SECURITY UPDATE: NTLM type-2 out-of-bounds buffer read
+    - debian/patches/CVE-2018-16890.patch: fix size check condition for
+      type2 received data in lib/vauth/ntlm.c.
+    - CVE-2018-16890
+  * SECURITY UPDATE: NTLMv2 type-3 header stack buffer overflow
+    - debian/patches/CVE-2019-3822.patch: ix *_type3_message size check to
+      avoid buffer overflow in lib/vauth/ntlm.c.
+    - CVE-2019-3822
+  * SECURITY UPDATE: SMTP end-of-response out-of-bounds read
+    - debian/patches/CVE-2019-3823.patch: avoid risk of buffer overflow in
+      strtol in lib/smtp.c.
+    - CVE-2019-3823
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 29 Jan 2019 08:44:13 -0500
+
 curl (7.61.0-1ubuntu2.2) cosmic-security; urgency=medium
 
   * SECURITY UPDATE: SASL password overflow via integer overflow
