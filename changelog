@@ -1,3 +1,12 @@
+curl (7.58.0-2ubuntu3.7) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: TFTP receive buffer overflow
+    - debian/patches/CVE-2019-5346.patch: use the current blksize in
+      lib/tftp.c.
+    - CVE-2019-5346
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Thu, 16 May 2019 08:40:17 -0400
+
 curl (7.58.0-2ubuntu3.6) bionic-security; urgency=medium
 
   * SECURITY UPDATE: NTLM type-2 out-of-bounds buffer read
