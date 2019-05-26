@@ -10,6 +10,7 @@ oob-read.patch
 CVE-2018-16890.patch
 CVE-2019-3822.patch
 CVE-2019-3823.patch
+CVE-2019-5436.patch
 12_curlvers.patch
 13_ssl3_syms.patch
 

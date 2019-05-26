@@ -1,8 +1,18 @@
-curl (7.61.0-1ubuntu2.3ppa1) cosmic; urgency=medium
+curl (7.61.0-1ubuntu2.4ppa1) cosmic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Thu, 07 Feb 2019 01:04:51 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 26 May 2019 11:18:08 -0700
+
+curl (7.61.0-1ubuntu2.4) cosmic-security; urgency=medium
+
+  * SECURITY UPDATE: TFTP receive buffer overflow
+    - debian/patches/CVE-2019-5346.patch: use the current blksize in
+      lib/tftp.c.
+    - CVE-2019-5346
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Thu, 16 May 2019 08:38:58 -0400
+
 
 curl (7.61.0-1ubuntu2.3) cosmic-security; urgency=medium
 
