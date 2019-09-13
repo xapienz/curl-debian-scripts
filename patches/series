@@ -14,6 +14,7 @@ CVE-2019-5436.patch
 12_curlvers.patch
 13_ssl3_syms.patch
 
+git_azure_devops.patch
 # do not add patches below
 90_gnutls.patch
 99_nss.patch
