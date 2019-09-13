@@ -1,3 +1,11 @@
+curl (7.61.0-1ubuntu2.5) cosmic; urgency=medium
+
+  * debian/patches/git_azure_devops.patch:
+    - only ever pick CURLAUTH_BEARER if we *have* a Bearer token,
+      should resolve issues using git on Azure DevOps (lp: #1805203)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 28 May 2019 20:27:58 +0200
+
 curl (7.61.0-1ubuntu2.4) cosmic-security; urgency=medium
 
   * SECURITY UPDATE: TFTP receive buffer overflow
