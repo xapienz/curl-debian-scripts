@@ -1,3 +1,19 @@
+curl (7.58.0-2ubuntu3.8) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: double-free when using kerberos over FTP may cause
+    denial-of-service
+    - debian/patches/CVE-2019-5481.patch: update lib/security.c to avoid
+      double-free on large memory allocation failures
+    - CVE-2019-5481
+  * SECURITY UPDATE: heap buffer overflow when receiving TFTP data may
+    cause denial-of-service or remote code-execution
+    - debian/patches/CVE-2019-5482.patch: ensure to use the correct block
+      size when calling recvfrom() if the server returns an OACK without
+      specifying a block size in lib/tftp.c
+    - CVE-2019-5482
+
+ -- Alex Murray <alex.murray@canonical.com>  Fri, 06 Sep 2019 14:57:21 +0930
+
 curl (7.58.0-2ubuntu3.7) bionic-security; urgency=medium
 
   * SECURITY UPDATE: TFTP receive buffer overflow
