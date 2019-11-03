@@ -3,8 +3,7 @@ Section: web
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Alessandro Ghedini <ghedo@debian.org>
-Uploaders: Ian Jackson <ijackson@chiark.greenend.org.uk>
-Build-Depends: debhelper (>= 11),
+Build-Depends: debhelper (>= 12),
  autoconf,
  automake,
  ca-certificates,
@@ -19,7 +18,7 @@ Build-Depends: debhelper (>= 11),
  libnss3-dev,
  libpsl-dev,
  librtmp-dev (>= 2.4+20131018.git79459a2-3~),
- libssh2-1-dev,
+ libssh-dev,
  libssl-dev (>= 1.1),
  libtool,
  openssh-server <!nocheck>,
@@ -28,7 +27,7 @@ Build-Depends: debhelper (>= 11),
  stunnel4 <!nocheck>,
  zlib1g-dev
 Build-Conflicts: autoconf2.13, automake1.4
-Standards-Version: 4.2.0
+Standards-Version: 4.4.0
 Vcs-Git: https://salsa.debian.org/debian/curl.git
 Vcs-Browser: https://salsa.debian.org/debian/curl
 Homepage: http://curl.haxx.se
