@@ -1,73 +1,187 @@
-curl (7.61.0-1ubuntu2.5ppa1) cosmic; urgency=medium
+curl (7.65.3-1ubuntu3ppa1) eoan; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Fri, 13 Sep 2019 00:20:03 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Sat, 02 Nov 2019 18:11:13 -0700
 
-curl (7.61.0-1ubuntu2.5) cosmic; urgency=medium
+curl (7.65.3-1ubuntu3) eoan; urgency=medium
 
-  * debian/patches/git_azure_devops.patch:
-    - only ever pick CURLAUTH_BEARER if we *have* a Bearer token,
-      should resolve issues using git on Azure DevOps (lp: #1805203)
+  * SECURITY UPDATE: double-free when using kerberos over FTP may cause
+    denial-of-service
+    - debian/patches/CVE-2019-5481.patch: update lib/security.c to avoid
+      double-free on large memory allocation failures
+    - CVE-2019-5481
+  * SECURITY UPDATE: heap buffer overflow when receiving TFTP data may
+    cause denial-of-service or remote code-execution
+    - debian/patches/CVE-2019-5482.patch: ensure to use the correct block
+      size when calling recvfrom() if the server returns an OACK without
+      specifying a block size in lib/tftp.c
+    - CVE-2019-5482
 
- -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 28 May 2019 20:27:58 +0200
+ -- Alex Murray <alex.murray@canonical.com>  Fri, 06 Sep 2019 14:52:01 +0930
 
-curl (7.61.0-1ubuntu2.4) cosmic-security; urgency=medium
+curl (7.65.3-1ubuntu2) eoan; urgency=medium
 
+  * No-change upload with strops.h and sys/strops.h removed in glibc.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 05 Sep 2019 13:37:38 +0200
+
+curl (7.65.3-1ubuntu1) eoan; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/control, debian/rules: build with libssh instead of libssh2.
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sat, 10 Aug 2019 09:40:03 +0200
+
+curl (7.65.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * Drop 12_fix-man-errors.patch (merged upstream)
+  * Remove Ian Jackson from Uploaders as he has never done an upload
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Fri, 09 Aug 2019 19:45:02 +0100
+
+curl (7.65.1-1ubuntu1) eoan; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/control, debian/rules: build with libssh instead of libssh2.
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 15 Jul 2019 15:20:26 +0200
+
+curl (7.65.1-1) unstable; urgency=medium
+
+  * New upstream release
+    + Reduce verbose output (Closes: #926148)
+    + Fix parsing URLs with link local addresses (Closes: #926812)
+  * Drop patches merged upstream
+  * Refresh patches
+  * Bump STandards-Version to 4.4.0 (no changes needed)
+  * Update entry in copyright for renamed files
+  * Fix some man errors.
+    Thanks to Bjarni Ingi Gislason for the patch (Closes: #926352)
+  * Add Build-Depends-Package field to symbols files
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Sat, 13 Jul 2019 12:37:09 +0100
+
+curl (7.64.0-4ubuntu1) eoan; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/control, debian/rules: build with libssh instead of libssh2.
+  * Dropped changes, included in Debian:
+    - SECURITY UPDATE: Integer overflows in curl_url_set()
+    - SECURITY UPDATE: TFTP receive buffer overflow
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 19 Jun 2019 22:50:09 -0700
+
+curl (7.64.0-4) unstable; urgency=medium
+
+  * Fix TFTP receive buffer overflow as per CVE-2019-5436 (Closes: #929351)
+    https://curl.haxx.se/docs/CVE-2019-5436.html
+  * Fix integer overflow in curl_url_set() as per CVE-2019-5435 (Closes: #929352)
+    https://curl.haxx.se/docs/CVE-2019-5435.html
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Fri, 14 Jun 2019 19:23:32 +0100
+
+curl (7.64.0-3ubuntu2) eoan; urgency=medium
+
+  * SECURITY UPDATE: Integer overflows in curl_url_set()
+    - debian/patches/CVE-2019-5435.patch: limit sizes in lib/setopt.c,
+      lib/urlapi.c, lib/urldata.h, tests/data/Makefile.inc,
+      tests/data/test1559, tests/libtest/Makefile.inc,
+      tests/libtest/lib1559.c.
+    - CVE-2019-5435
   * SECURITY UPDATE: TFTP receive buffer overflow
-    - debian/patches/CVE-2019-5346.patch: use the current blksize in
+    - debian/patches/CVE-2019-5436.patch: use the current blksize in
       lib/tftp.c.
-    - CVE-2019-5346
+    - CVE-2019-5436
 
- -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Thu, 16 May 2019 08:38:58 -0400
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 22 May 2019 09:36:43 -0400
 
+curl (7.64.0-3ubuntu1) eoan; urgency=low
 
-curl (7.61.0-1ubuntu2.3) cosmic-security; urgency=medium
+  * Merge from Debian unstable.  Remaining changes:
+  * debian/control, debian/rules:
+    - build with libssh instead of libssh2, that's a better maintained
+      library and it's in Ubuntu main (lp: #311029)
 
-  * SECURITY UPDATE: NTLM type-2 out-of-bounds buffer read
-    - debian/patches/CVE-2018-16890.patch: fix size check condition for
-      type2 received data in lib/vauth/ntlm.c.
-    - CVE-2018-16890
-  * SECURITY UPDATE: NTLMv2 type-3 header stack buffer overflow
-    - debian/patches/CVE-2019-3822.patch: ix *_type3_message size check to
-      avoid buffer overflow in lib/vauth/ntlm.c.
-    - CVE-2019-3822
-  * SECURITY UPDATE: SMTP end-of-response out-of-bounds read
-    - debian/patches/CVE-2019-3823.patch: avoid risk of buffer overflow in
-      strtol in lib/smtp.c.
-    - CVE-2019-3823
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 13 May 2019 10:02:19 +0200
 
- -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 29 Jan 2019 08:44:13 -0500
+curl (7.64.0-3) unstable; urgency=medium
 
-curl (7.61.0-1ubuntu2.2) cosmic-security; urgency=medium
+  * Fix potential crash in HTTP/2 code and busy loop at the end of connections
+    (Closes: #927471)
 
-  * SECURITY UPDATE: SASL password overflow via integer overflow
-    - debian/patches/CVE-2018-16839.patch: fix check in
-      lib/vauth/cleartext.c.
-    - CVE-2018-16839
-  * SECURITY UPDATE: use-after-free in handle close
-    - debian/patches/CVE-2018-16840.patch: fix issue in lib/url.c.
-    - CVE-2018-16840
-  * SECURITY UPDATE: warning message out-of-buffer read
-    - debian/patches/oob-read.patch: fix bad arithmetic in src/tool_msgs.c.
-    - CVE number pending
+ -- Alessandro Ghedini <ghedo@debian.org>  Sat, 04 May 2019 12:51:06 +0100
 
- -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Mon, 29 Oct 2018 08:08:34 -0400
+curl (7.64.0-2ubuntu1) disco; urgency=low
 
-curl (7.61.0-1ubuntu2) cosmic; urgency=high
+  * Merge from Debian unstable.  Remaining changes:
+  * debian/control, debian/rules:
+    - build with libssh instead of libssh2, that's a better maintained
+      library and it's in Ubuntu main (lp: #311029)
 
-  * No change rebuild against openssl 1.1.1 with TLS 1.3 support.
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 05 Apr 2019 17:50:51 +0200
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Sat, 29 Sep 2018 01:36:46 +0100
+curl (7.64.0-2) unstable; urgency=medium
 
-curl (7.61.0-1ubuntu1) cosmic; urgency=medium
+  * Fix infinite loop when fetching URLs with unreachable IPv6 (Closes: #922554)
 
-  * SECURITY UPDATE: Buffer overrun
-    - debian/patches/CVE-2018-14618.patch: fix in
-      lib/curl_ntlm_core.c.
-    - CVE-2018-14618
+ -- Alessandro Ghedini <ghedo@debian.org>  Thu, 07 Mar 2019 20:02:35 +0000
 
- -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Mon, 17 Sep 2018 06:25:23 -0300
+curl (7.64.0-1ubuntu1) disco; urgency=medium
+
+  * Resynchronize with Debian, remaining change
+  * debian/control, debian/rules:
+    - build with libssh instead of libssh2, that's a better maintained
+      library and it's in Ubuntu main (lp: #311029)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 14 Feb 2019 16:49:23 +0100
+
+curl (7.64.0-1) unstable; urgency=medium
+
+  * New upstream release
+    + Fix NTLM type-2 out-of-bounds buffer read as per CVE-2018-16890
+      https://curl.haxx.se/docs/CVE-2018-16890.html
+    + Fix NTLMv2 type-3 header stack buffer overflow as per CVE-2019-3822
+      https://curl.haxx.se/docs/CVE-2019-3822.html
+    + Fix SMTP end-of-response out-of-bounds read as per CVE-2019-3823
+      https://curl.haxx.se/docs/CVE-2019-3823.html
+    + Fix HTTP negotiation with POST requests (Closes: #920267)
+  * Refresh patches
+  * Import fixes for zsh completion script generator (Closes: #92145)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Wed, 06 Feb 2019 22:33:05 +0000
+
+curl (7.63.0-1) unstable; urgency=medium
+
+  * New upstream release
+    + Fix IPv6 numeral address parser (Closes: #915520)
+    + Fix timeout handling (Closes: #914793)
+    + Fix HTTP auth to include query in URI (Closes: #913214)
+  * Drop 12_fix-runtests-curl.patch (merged upstream)
+  * Update symbols
+  * Update copyright for removed files
+  * Bump debhlper compat level to 12
+  * Bump Standards-Version to 4.3.0 (no changes needed)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Tue, 15 Jan 2019 20:47:40 +0000
+
+curl (7.62.0-1) unstable; urgency=medium
+
+  * New upstream release
+    + Fix NTLM password overflow via integer overflow as per CVE-2018-14618
+      (Closes: #908327) https://curl.haxx.se/docs/CVE-2018-14618.html
+    + Fix SASL password overflow via integer overflow as per CVE-2018-16839
+      https://curl.haxx.se/docs/CVE-2018-16839.html
+    + Fix use-after-free in handle close as per CVE-2018-16840
+      https://curl.haxx.se/docs/CVE-2018-16840.html
+    + Fix warning message out-of-buffer read as per CVE-2018-16842
+      https://curl.haxx.se/docs/CVE-2018-16842.html
+    + Fix broken terminal output (closes: #911333)
+  * Refresh patches
+  * Add 12_fix-runtests-curl.patch to fix running curl in tests
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Wed, 31 Oct 2018 22:42:44 +0000
 
 curl (7.61.0-1) unstable; urgency=medium
 

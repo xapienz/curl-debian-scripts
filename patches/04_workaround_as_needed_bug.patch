@@ -8,7 +8,7 @@ Last-Update: 2016-08-03
 
 --- a/ltmain.sh
 +++ b/ltmain.sh
-@@ -7409,6 +7409,11 @@
+@@ -7312,6 +7312,11 @@
  	arg=$func_stripname_result
  	;;
  
@@ -20,7 +20,7 @@ Last-Update: 2016-08-03
        -Wl,*)
  	func_stripname '-Wl,' '' "$arg"
  	args=$func_stripname_result
-@@ -7799,6 +7804,15 @@
+@@ -7703,6 +7708,15 @@
  	lib=
  	found=false
  	case $deplib in

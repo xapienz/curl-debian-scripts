@@ -1,4 +1,5 @@
 libcurl-nss.so.4 libcurl3-nss #MINVER#
+* Build-Depends-Package: libcurl4-nss-dev
  CURL_NSS_3@CURL_NSS_3 7.23.1
  HIDDEN@HIDDEN 7.23.1
  curl_easy_cleanup@CURL_NSS_3 7.23.1
@@ -14,6 +15,7 @@ libcurl-nss.so.4 libcurl3-nss #MINVER#
  curl_easy_setopt@CURL_NSS_3 7.23.1
  curl_easy_strerror@CURL_NSS_3 7.23.1
  curl_easy_unescape@CURL_NSS_3 7.23.1
+ curl_easy_upkeep@CURL_NSS_3 7.63.0
  curl_escape@CURL_NSS_3 7.23.1
  curl_formadd@CURL_NSS_3 7.23.1
  curl_formfree@CURL_NSS_3 7.23.1
@@ -74,5 +76,10 @@ libcurl-nss.so.4 libcurl3-nss #MINVER#
  curl_strequal@CURL_NSS_3 7.23.1
  curl_strnequal@CURL_NSS_3 7.23.1
  curl_unescape@CURL_NSS_3 7.23.1
+ curl_url@CURL_NSS_3 7.63.0
+ curl_url_cleanup@CURL_NSS_3 7.63.0
+ curl_url_dup@CURL_NSS_3 7.63.0
+ curl_url_get@CURL_NSS_3 7.63.0
+ curl_url_set@CURL_NSS_3 7.63.0
  curl_version@CURL_NSS_3 7.23.1
  curl_version_info@CURL_NSS_3 7.23.1

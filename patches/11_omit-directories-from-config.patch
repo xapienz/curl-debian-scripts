@@ -20,7 +20,7 @@ Last-Update: 2017-01-10
  cppflag_curl_staticlib=@CPPFLAG_CURL_STATICLIB@
  
  usage()
-@@ -135,19 +134,11 @@
+@@ -147,19 +146,11 @@
          else
            CPPFLAG_CURL_STATICLIB=""
          fi
@@ -42,7 +42,7 @@ Last-Update: 2017-01-10
          if test "X@REQUIRE_LIB_DEPS@" = "Xyes"; then
            echo ${CURLLIBDIR}-lcurl @LIBCURL_LIBS@
          else
-@@ -160,7 +151,7 @@
+@@ -172,7 +163,7 @@
  
      --static-libs)
          if test "X@ENABLE_STATIC@" != "Xno" ; then

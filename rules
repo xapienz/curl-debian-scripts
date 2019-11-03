@@ -21,7 +21,7 @@ CONFIGURE_ARGS = -- --disable-dependency-tracking		\
 
 # disable libssh2 on Ubuntu (see #888449)
 ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
-	CONFIGURE_ARGS += --without-libssh2
+	CONFIGURE_ARGS += --without-libssh2 --with-libssh
 endif
 
 %:

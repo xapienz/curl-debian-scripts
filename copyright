@@ -6,14 +6,9 @@ Files: *
 Copyright: 1996-2015, Daniel Stenberg <daniel@haxx.se>
 License: curl
 
-Files: lib/vtls/axtls.*
-Copyright: 2010, DirecTV
- 2010-2015, Daniel Stenberg <daniel@haxx.se>
-License: curl
-
-Files: lib/vtls/darwinssl.*
+Files: lib/vtls/sectransp.*
 Copyright: 2012-2014, Nick Zitzmann <nickzman@gmail.com>
- 2012-2015, Daniel Stenberg <daniel@haxx.se>
+ 2012-2019, Daniel Stenberg <daniel@haxx.se>
 License: curl
 
 Files: lib/curl_rtmp.*

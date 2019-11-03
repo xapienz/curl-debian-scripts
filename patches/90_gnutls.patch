@@ -21,16 +21,16 @@ Last-Update: 2018-05-23
  # This might hold -Werror
 --- a/lib/Makefile.am
 +++ b/lib/Makefile.am
-@@ -32,7 +32,7 @@
-  firefox-db2pem.sh config-vxworks.h Makefile.vxworks checksrc.pl	\
-  objnames-test08.sh objnames-test10.sh objnames.inc
+@@ -31,7 +31,7 @@
+  config-tpf.h mk-ca-bundle.pl mk-ca-bundle.vbs $(CMAKE_DIST)        \
+  firefox-db2pem.sh config-vxworks.h Makefile.vxworks checksrc.pl
  
 -lib_LTLIBRARIES = libcurl.la
 +lib_LTLIBRARIES = libcurl-gnutls.la
  
  if BUILD_UNITTESTS
  noinst_LTLIBRARIES = libcurlu.la
-@@ -84,44 +84,44 @@
+@@ -83,43 +83,43 @@
  AM_LDFLAGS =
  AM_CFLAGS =
  
@@ -40,12 +40,6 @@ Last-Update: 2018-05-23
 +libcurl_gnutls_la_CPPFLAGS_EXTRA =
 +libcurl_gnutls_la_LDFLAGS_EXTRA =
 +libcurl_gnutls_la_CFLAGS_EXTRA =
- 
- @CODE_COVERAGE_RULES@
--libcurl_la_LDFLAGS_EXTRA += $(CODE_COVERAGE_LDFLAGS)
--libcurl_la_CFLAGS_EXTRA += $(CODE_COVERAGE_CFLAGS)
-+libcurl_gnutls_la_LDFLAGS_EXTRA += $(CODE_COVERAGE_LDFLAGS)
-+libcurl_gnutls_la_CFLAGS_EXTRA += $(CODE_COVERAGE_CFLAGS)
  
  if CURL_LT_SHLIB_USE_VERSION_INFO
 -libcurl_la_LDFLAGS_EXTRA += $(VERSIONINFO)
@@ -66,8 +60,11 @@ Last-Update: 2018-05-23
 -libcurl_la_LDFLAGS_EXTRA += -Wl,--version-script=libcurl.vers
 +libcurl_gnutls_la_LDFLAGS_EXTRA += -Wl,--version-script=libcurl.vers
  else
+ # if symbol-hiding is enabled, hide them!
+ if DOING_CURL_SYMBOL_HIDING
 -libcurl_la_LDFLAGS_EXTRA += -export-symbols-regex '^curl_.*'
 +libcurl_gnutls_la_LDFLAGS_EXTRA += -export-symbols-regex '^curl_.*'
+ endif
  endif
  
  if USE_CPPFLAG_CURL_STATICLIB
@@ -91,7 +88,7 @@ Last-Update: 2018-05-23
  
  libcurlu_la_CPPFLAGS = $(AM_CPPFLAGS) -DCURL_STATICLIB -DUNITTESTS
  libcurlu_la_LDFLAGS = $(AM_LDFLAGS) -static $(LIBCURL_LIBS)
-@@ -130,7 +130,7 @@
+@@ -128,7 +128,7 @@
  # Makefile.inc provides the CSOURCES and HHEADERS defines
  include Makefile.inc
  
@@ -99,7 +96,7 @@ Last-Update: 2018-05-23
 +libcurl_gnutls_la_SOURCES = $(CSOURCES) $(HHEADERS)
  libcurlu_la_SOURCES = $(CSOURCES) $(HHEADERS)
  
- checksrc:
+ CHECKSRC = $(CS_$(V))
 --- a/src/Makefile.am
 +++ b/src/Makefile.am
 @@ -61,9 +61,9 @@
@@ -116,7 +113,7 @@ Last-Update: 2018-05-23
  curl_LDFLAGS = @LIBMETALINK_LDFLAGS@
 --- a/tests/libtest/Makefile.am
 +++ b/tests/libtest/Makefile.am
-@@ -55,11 +55,11 @@
+@@ -57,11 +57,11 @@
  LIBS = $(BLANK_AT_MAKETIME)
  
  if USE_EXPLICIT_LIB_DEPS
