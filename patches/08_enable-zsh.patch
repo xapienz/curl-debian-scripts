@@ -7,7 +7,7 @@ Last-Update: 2016-08-03
 
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -167,8 +167,8 @@
+@@ -178,8 +178,8 @@
  
  bin_SCRIPTS = curl-config
  

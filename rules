@@ -51,7 +51,8 @@ override_dh_auto_configure:
 		(cd debian/$$flavour && ./buildconf && cp ../../ltmain.sh .) \
 	done
 	cd debian/build && dh_auto_configure ${CONFIGURE_ARGS}		\
-		--with-ca-path=/etc/ssl/certs
+		--with-ca-path=/etc/ssl/certs \
+		--with-ca-bundle=/etc/ssl/certs/ca-certificates.crt
 	cd debian/build-gnutls &&  dh_auto_configure ${CONFIGURE_ARGS}	\
 		--with-ca-path=/etc/ssl/certs				\
 		--without-ssl --with-gnutls
