@@ -1,8 +1,87 @@
-curl (7.65.3-1ubuntu3ppa1) eoan; urgency=medium
+curl (7.68.0-1ubuntu2ppa1) focal; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Sat, 02 Nov 2019 18:11:13 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 31 May 2020 14:48:39 -0700
+
+curl (7.68.0-1ubuntu2) focal; urgency=medium
+
+  * debian/patches/git_tls13_gnutls.patch:
+    - Ensure TLS 1.3 works with GnuTLS, thanks Dirkjan Bussink for writting
+      the patch and pointing it out on launchpad! (lp: #1872698)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 15 Apr 2020 08:27:03 +0200
+
+curl (7.68.0-1ubuntu1) focal; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/control, debian/rules: build with libssh instead of libssh2.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Sun, 23 Feb 2020 12:33:45 -0800
+
+curl (7.68.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump Standards-Version to 4.5.0 (no changes needed)
+  * Update symbols files
+  * Configure default CA file with OpenSSL again (Closes: #948441)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Sat, 22 Feb 2020 14:37:19 +0000
+
+curl (7.67.0-2ubuntu1) focal; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/control, debian/rules: build with libssh instead of libssh2.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Thu, 13 Feb 2020 11:01:54 -0800
+
+curl (7.67.0-2) unstable; urgency=medium
+
+  * Restore :native annotation for python3 Build-Depends.
+    Thanks to Helmut Grohne for the patch (Closes: #945928)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Sun, 01 Dec 2019 13:29:28 +0000
+
+curl (7.67.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Replace python with python3 in Build-Depends (Closes: #942984)
+  * Bump Standards-Version to 4.4.1 (no changes needed)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Sat, 30 Nov 2019 12:45:07 +0000
+
+curl (7.66.0-1ubuntu1) focal; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/control, debian/rules: build with libssh instead of libssh2.
+  * Dropped changes, included upstream:
+    - debian/patches/CVE-2019-5481.patch: update lib/security.c to avoid
+       double-free on large memory allocation failures
+    - debian/patches/CVE-2019-5482.patch: ensure to use the correct block
+      size when calling recvfrom() if the server returns an OACK without
+      specifying a block size in lib/tftp.c
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Tue, 12 Nov 2019 17:05:51 -0800
+
+curl (7.66.0-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #940024)
+    + Fix FTP-KRB double-free as per CVE-2019-5481 (Closes: #940009)
+      https://curl.haxx.se/docs/CVE-2019-5481.html
+    + Fix TFTP small blocksize heap buffer overflow as per CVE-2019-5482
+      (Closes: #940010)
+      https://curl.haxx.se/docs/CVE-2019-5482.html
+  * Refresh patches
+  * Enable brotli support (Closes: #940129)
+  * Update *.symbols files
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Sun, 15 Sep 2019 15:47:05 +0100
+
+curl (7.65.3-1ubuntu4) focal; urgency=medium
+
+  * No-change rebuild against libnettle7
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Thu, 31 Oct 2019 22:10:02 +0000
 
 curl (7.65.3-1ubuntu3) eoan; urgency=medium
 
@@ -2352,3 +2431,4 @@ curl (5.8-1) unstable; urgency=low
   * Initial Release.
 
  -- Leon Breedt <ljb@debian.org>  Sun,  9 May 1999 18:55:48 +0200
+

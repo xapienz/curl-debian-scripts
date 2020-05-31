@@ -10,6 +10,7 @@ Build-Depends: debhelper (>= 12),
  dh-exec,
  dpkg-dev (>= 1.17.14~),
  groff-base,
+ libbrotli-dev,
  libgnutls28-dev,
  libidn2-0-dev,
  libkrb5-dev,
@@ -22,12 +23,12 @@ Build-Depends: debhelper (>= 12),
  libssl-dev (>= 1.1),
  libtool,
  openssh-server <!nocheck>,
- python:native,
+ python3:native,
  quilt,
  stunnel4 <!nocheck>,
  zlib1g-dev
 Build-Conflicts: autoconf2.13, automake1.4
-Standards-Version: 4.4.0
+Standards-Version: 4.5.0
 Vcs-Git: https://salsa.debian.org/debian/curl.git
 Vcs-Browser: https://salsa.debian.org/debian/curl
 Homepage: http://curl.haxx.se

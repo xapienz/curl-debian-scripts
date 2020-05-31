@@ -52,6 +52,7 @@ libcurl-nss.so.4 libcurl3-nss #MINVER#
  curl_multi_info_read@CURL_NSS_3 7.23.1
  curl_multi_init@CURL_NSS_3 7.23.1
  curl_multi_perform@CURL_NSS_3 7.23.1
+ curl_multi_poll@CURL_NSS_3 7.66.0
  curl_multi_remove_handle@CURL_NSS_3 7.23.1
  curl_multi_setopt@CURL_NSS_3 7.23.1
  curl_multi_socket@CURL_NSS_3 7.23.1
@@ -60,6 +61,7 @@ libcurl-nss.so.4 libcurl3-nss #MINVER#
  curl_multi_strerror@CURL_NSS_3 7.23.1
  curl_multi_timeout@CURL_NSS_3 7.23.1
  curl_multi_wait@CURL_NSS_3 7.28.0
+ curl_multi_wakeup@CURL_NSS_3 7.68.0
  curl_mvaprintf@CURL_NSS_3 7.23.1
  curl_mvfprintf@CURL_NSS_3 7.23.1
  curl_mvprintf@CURL_NSS_3 7.23.1
