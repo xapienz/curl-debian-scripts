@@ -1,3 +1,17 @@
+curl (7.68.0-1ubuntu2.1) focal-security; urgency=medium
+
+  * SECURITY UPDATE: Partial password leak over DNS on HTTP redirect
+    - debian/patches/CVE-2020-8169.patch: make the updated credentials
+      URL-encoded in the URL in lib/url.c, tests/data/test1168,
+      tests/data/Makefile.inc.
+    - CVE-2020-8169
+  * SECURITY UPDATE: curl overwrite local file with -J
+    - debian/patches/CVE-2020-8177.patch: -i is not OK if -J is used in
+      src/tool_cb_hdr.c, src/tool_getparam.c.
+    - CVE-2020-8177
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 17 Jun 2020 09:03:28 -0400
+
 curl (7.68.0-1ubuntu2) focal; urgency=medium
 
   * debian/patches/git_tls13_gnutls.patch:
