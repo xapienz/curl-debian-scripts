@@ -1,8 +1,17 @@
-curl (7.58.0-2ubuntu3.8ppa2) bionic; urgency=medium
+curl (7.58.0-2ubuntu3.9ppa1) bionic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Fri, 13 Sep 2019 00:23:38 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Mon, 29 Jun 2020 01:10:56 -0700
+
+curl (7.58.0-2ubuntu3.9) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: curl overwrite local file with -J
+    - debian/patches/CVE-2020-8177.patch: -i is not OK if -J is used in
+      src/tool_cb_hdr.c, src/tool_getparam.c.
+    - CVE-2020-8177
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 17 Jun 2020 09:19:29 -0400
 
 curl (7.58.0-2ubuntu3.8) bionic-security; urgency=medium
 
