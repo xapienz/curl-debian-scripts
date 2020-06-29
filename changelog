@@ -1,8 +1,22 @@
-curl (7.68.0-1ubuntu2ppa1) focal; urgency=medium
+curl (7.68.0-1ubuntu2.1ppa1) focal; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 31 May 2020 14:48:39 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Mon, 29 Jun 2020 01:48:08 -0700
+
+curl (7.68.0-1ubuntu2.1) focal-security; urgency=medium
+
+  * SECURITY UPDATE: Partial password leak over DNS on HTTP redirect
+    - debian/patches/CVE-2020-8169.patch: make the updated credentials
+      URL-encoded in the URL in lib/url.c, tests/data/test1168,
+      tests/data/Makefile.inc.
+    - CVE-2020-8169
+  * SECURITY UPDATE: curl overwrite local file with -J
+    - debian/patches/CVE-2020-8177.patch: -i is not OK if -J is used in
+      src/tool_cb_hdr.c, src/tool_getparam.c.
+    - CVE-2020-8177
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 17 Jun 2020 09:03:28 -0400
 
 curl (7.68.0-1ubuntu2) focal; urgency=medium
 

@@ -4,6 +4,8 @@ git_tls13_gnutls.patch
 07_do-not-disable-debug-symbols.patch
 08_enable-zsh.patch
 11_omit-directories-from-config.patch
+CVE-2020-8169.patch
+CVE-2020-8177.patch
 12_curlvers.patch
 13_ssl3_syms.patch
 
