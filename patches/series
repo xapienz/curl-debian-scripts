@@ -6,6 +6,7 @@ git_tls13_gnutls.patch
 11_omit-directories-from-config.patch
 CVE-2020-8169.patch
 CVE-2020-8177.patch
+CVE-2020-8231.patch
 
 # do not add patches below
 90_gnutls.patch
