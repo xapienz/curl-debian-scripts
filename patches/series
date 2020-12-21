@@ -7,6 +7,9 @@ git_tls13_gnutls.patch
 CVE-2020-8169.patch
 CVE-2020-8177.patch
 CVE-2020-8231.patch
+CVE-2020-8284.patch
+CVE-2020-8285.patch
+CVE-2020-8286.patch
 
 # do not add patches below
 90_gnutls.patch
