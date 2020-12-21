@@ -2,7 +2,7 @@ curl (7.58.0-2ubuntu3.12ppa1) bionic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Sat, 13 Dec 2020 01:55:06 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 13 Dec 2020 01:55:06 -0700
 
 curl (7.58.0-2ubuntu3.12) bionic-security; urgency=medium
 
