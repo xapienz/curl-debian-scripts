@@ -2,7 +2,7 @@ curl (7.68.0-1ubuntu2.4ppa1) focal; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Sat, 29 Aug 2020 02:52:50 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Mon, 21 Dec 2020 01:02:04 -0700
 
 curl (7.68.0-1ubuntu2.4) focal-security; urgency=medium
 
