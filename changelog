@@ -1,3 +1,20 @@
+curl (7.58.0-2ubuntu3.12) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: FTP redirect to malicious host via PASV response
+    - debian/patches/CVE-2020-8284.patch: use CURLOPT_FTP_SKIP_PASV_IP by
+      default in lib/url.c, src/tool_cfgable.c, docs/*, tests/data/*.
+    - CVE-2020-8284
+  * SECURITY UPDATE: FTP wildcard stack buffer overflow in libcurl
+    - debian/patches/CVE-2020-8285.patch: make wc_statemach loop instead of
+      recurse in lib/ftp.c.
+    - CVE-2020-8285
+  * SECURITY UPDATE: Inferior OCSP verification
+    - debian/patches/CVE-2020-8286.patch: make the OCSP verification verify
+      the certificate id in lib/vtls/openssl.c.
+    - CVE-2020-8286
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 01 Dec 2020 13:01:10 -0500
+
 curl (7.58.0-2ubuntu3.10) bionic-security; urgency=medium
 
   * SECURITY UPDATE: wrong connect-only connection
