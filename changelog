@@ -1,8 +1,25 @@
-curl (7.68.0-1ubuntu2.2ppa1) focal; urgency=medium
+curl (7.68.0-1ubuntu2.4ppa1) focal; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
  -- Evgeny Brazgin <xapienz@phystech.edu>  Sat, 29 Aug 2020 02:52:50 -0700
+
+curl (7.68.0-1ubuntu2.4) focal-security; urgency=medium
+
+  * SECURITY UPDATE: FTP redirect to malicious host via PASV response
+    - debian/patches/CVE-2020-8284.patch: use CURLOPT_FTP_SKIP_PASV_IP by
+      default in lib/url.c, src/tool_cfgable.c, docs/*, tests/data/*.
+    - CVE-2020-8284
+  * SECURITY UPDATE: FTP wildcard stack buffer overflow in libcurl
+    - debian/patches/CVE-2020-8285.patch: make wc_statemach loop instead of
+      recurse in lib/ftp.c.
+    - CVE-2020-8285
+  * SECURITY UPDATE: Inferior OCSP verification
+    - debian/patches/CVE-2020-8286.patch: make the OCSP verification verify
+      the certificate id in lib/vtls/openssl.c.
+    - CVE-2020-8286
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Mon, 30 Nov 2020 10:59:13 -0500
 
 curl (7.68.0-1ubuntu2.2) focal-security; urgency=medium
 
