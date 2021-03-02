@@ -263,6 +263,20 @@ Index: curl-7.68.0/lib/strcase.c
 +__asm__(".symver curl3_strnequal,curl_strnequal@CURL_OPENSSL_3");
 +void curl3_strnequal(void) __attribute__ ((weak, alias ("curl_strnequal")));
 +#endif
+Index: curl-7.68.0/lib/strerror.c
+===================================================================
+--- curl-7.68.0.orig/lib/strerror.c
++++ curl-7.68.0/lib/strerror.c
+@@ -1001,3 +1001,9 @@ const char *Curl_sspi_strerror(int err,
+   return buf;
+ }
+ #endif /* USE_WINDOWS_SSPI */
++
++// curl3 symbols go below:
++#ifdef USE_OPENSSL
++__asm__(".symver curl3_easy_strerror,curl_easy_strerror@CURL_OPENSSL_3");
++void curl3_easy_strerror(void) __attribute__ ((weak, alias ("curl_easy_strerror")));
++#endif
 Index: curl-7.68.0/lib/urlapi.c
 ===================================================================
 --- curl-7.68.0.orig/lib/urlapi.c
