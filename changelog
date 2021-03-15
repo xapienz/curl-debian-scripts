@@ -1,3 +1,9 @@
+curl (7.68.0-1ubuntu2.4ppa2) focal; urgency=medium
+
+  * Update symbols.
+
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 14 Mar 2021 21:34:39 -0700
+
 curl (7.68.0-1ubuntu2.4ppa1) focal; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.

@@ -2,7 +2,7 @@ Index: curl-7.68.0/lib/easy.c
 ===================================================================
 --- curl-7.68.0.orig/lib/easy.c
 +++ curl-7.68.0/lib/easy.c
-@@ -1175,3 +1175,32 @@ CURLcode curl_easy_upkeep(struct Curl_ea
+@@ -1174,3 +1174,32 @@ CURLcode curl_easy_upkeep(struct Curl_ea
      return CURLE_OK;
    }
  }
@@ -171,7 +171,7 @@ Index: curl-7.68.0/lib/multi.c
 ===================================================================
 --- curl-7.68.0.orig/lib/multi.c
 +++ curl-7.68.0/lib/multi.c
-@@ -3345,3 +3345,35 @@ size_t Curl_multi_max_concurrent_streams
+@@ -3346,3 +3346,35 @@ size_t Curl_multi_max_concurrent_streams
    return multi ? ((size_t)multi->max_concurrent_streams ?
                    (size_t)multi->max_concurrent_streams : 100) : 0;
  }
@@ -267,15 +267,18 @@ Index: curl-7.68.0/lib/strerror.c
 ===================================================================
 --- curl-7.68.0.orig/lib/strerror.c
 +++ curl-7.68.0/lib/strerror.c
-@@ -1001,3 +1001,9 @@ const char *Curl_sspi_strerror(int err,
+@@ -1001,3 +1001,12 @@ const char *Curl_sspi_strerror(int err,
    return buf;
  }
  #endif /* USE_WINDOWS_SSPI */
-+
 +// curl3 symbols go below:
 +#ifdef USE_OPENSSL
 +__asm__(".symver curl3_easy_strerror,curl_easy_strerror@CURL_OPENSSL_3");
 +void curl3_easy_strerror(void) __attribute__ ((weak, alias ("curl_easy_strerror")));
++__asm__(".symver curl3_multi_strerror,curl_multi_strerror@CURL_OPENSSL_3");
++void curl3_multi_strerror(void) __attribute__ ((weak, alias ("curl_multi_strerror")));
++__asm__(".symver curl3_share_strerror,curl_share_strerror@CURL_OPENSSL_3");
++void curl3_share_strerror(void) __attribute__ ((weak, alias ("curl_share_strerror")));
 +#endif
 Index: curl-7.68.0/lib/urlapi.c
 ===================================================================
@@ -325,4 +328,21 @@ Index: curl-7.68.0/lib/vtls/vtls.c
 +#ifdef USE_OPENSSL
 +__asm__(".symver curl3_global_sslset,curl_global_sslset@CURL_OPENSSL_3");
 +void curl3_global_sslset(void) __attribute__ ((weak, alias ("curl_global_sslset")));
++#endif
+Index: curl-7.68.0/lib/share.c
+===================================================================
+--- curl-7.68.0.orig/lib/share.c
++++ curl-7.68.0/lib/share.c
+@@ -255,3 +255,12 @@ Curl_share_unlock(struct Curl_easy *data
+ 
+   return CURLSHE_OK;
+ }
++// curl3 symbols go below:
++#ifdef USE_OPENSSL
++__asm__(".symver curl3_share_cleanup,curl_share_cleanup@CURL_OPENSSL_3");
++void curl3_share_cleanup(void) __attribute__ ((weak, alias ("curl_share_cleanup")));
++__asm__(".symver curl3_share_init,curl_share_init@CURL_OPENSSL_3");
++void curl3_share_init(void) __attribute__ ((weak, alias ("curl_share_init")));
++__asm__(".symver curl3_share_setopt,curl_share_setopt@CURL_OPENSSL_3");
++void curl3_share_setopt(void) __attribute__ ((weak, alias ("curl_share_setopt")));
 +#endif
