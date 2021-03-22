@@ -1,3 +1,9 @@
+curl (7.58.0-2ubuntu3.12ppa2) bionic; urgency=medium
+
+  * Update symbols.
+
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Mon, 22 Mar 2021 00:09:14 -0700
+
 curl (7.58.0-2ubuntu3.12ppa1) bionic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.

@@ -288,3 +288,37 @@ Index: curl-7.58.0/lib/version.c
 +__asm__(".symver curl3_version_info,curl_version_info@CURL_OPENSSL_3");
 +void curl3_version_info(void) __attribute__ ((weak, alias ("curl_version_info")));
 +#endif
+Index: curl-7.58.0/lib/share.c
+===================================================================
+--- curl-7.58.0.orig/lib/share.c
++++ curl-7.58.0/lib/share.c
+@@ -246,3 +246,12 @@ Curl_share_unlock(struct Curl_easy *data
+ 
+   return CURLSHE_OK;
+ }
++// curl3 symbols go below:
++#ifdef USE_OPENSSL
++__asm__(".symver curl3_share_cleanup,curl_share_cleanup@CURL_OPENSSL_3");
++void curl3_share_cleanup(void) __attribute__ ((weak, alias ("curl_share_cleanup")));
++__asm__(".symver curl3_share_init,curl_share_init@CURL_OPENSSL_3");
++void curl3_share_init(void) __attribute__ ((weak, alias ("curl_share_init")));
++__asm__(".symver curl3_share_setopt,curl_share_setopt@CURL_OPENSSL_3");
++void curl3_share_setopt(void) __attribute__ ((weak, alias ("curl_share_setopt")));
++#endif
+Index: curl-7.58.0/lib/strerror.c
+===================================================================
+--- curl-7.58.0.orig/lib/strerror.c
++++ curl-7.58.0/lib/strerror.c
+@@ -1101,3 +1101,12 @@ const char *Curl_sspi_strerror (struct c
+   return outbuf;
+ }
+ #endif /* USE_WINDOWS_SSPI */
++// curl3 symbols go below:
++#ifdef USE_OPENSSL
++__asm__(".symver curl3_easy_strerror,curl_easy_strerror@CURL_OPENSSL_3");
++void curl3_easy_strerror(void) __attribute__ ((weak, alias ("curl_easy_strerror")));
++__asm__(".symver curl3_multi_strerror,curl_multi_strerror@CURL_OPENSSL_3");
++void curl3_multi_strerror(void) __attribute__ ((weak, alias ("curl_multi_strerror")));
++__asm__(".symver curl3_share_strerror,curl_share_strerror@CURL_OPENSSL_3");
++void curl3_share_strerror(void) __attribute__ ((weak, alias ("curl_share_strerror")));
++#endif
