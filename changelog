@@ -1,3 +1,25 @@
+
+curl (7.58.0-2ubuntu3.13ppa1) bionic; urgency=medium
+
+  * Support libcurl3 and libcurl4 at the same time.
+
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 13 Dec 2020 01:55:06 -0700
+
+curl (7.58.0-2ubuntu3.13) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: data leak via referer header field
+    - debian/patches/urlapi.patch: backport url api support in
+      include/curl/Makefile.am, include/curl/curl.h, include/curl/urlapi.h,
+      lib/Makefile.inc, lib/urlapi-int.h, lib/urlapi.c,
+      lib/curl_setup_once.h, lib/url.c, lib/url.h, lib/escape.c,
+      lib/escape.h, docs/libcurl/symbols-in-versions.
+    - debian/libcurl*.symbols: added new symbols.
+    - debian/patches/CVE-2021-22876.patch: strip credentials from the
+      auto-referer header field in lib/transfer.c.
+    - CVE-2021-22876
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 23 Mar 2021 09:13:58 -0400
+
 curl (7.58.0-2ubuntu3.12ppa2) bionic; urgency=medium
 
   * Update symbols.
