@@ -1,8 +1,9 @@
-curl (7.58.0-2ubuntu3.13ppa1) bionic; urgency=medium
+curl (7.58.0-2ubuntu3.13ppa2) bionic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
+  * Added metapackage curl34.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Tue, 18 May 2021 23:24:29 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Wed, 19 May 2021 00:22:58 -0700
 
 curl (7.58.0-2ubuntu3.13) bionic-security; urgency=medium
 
