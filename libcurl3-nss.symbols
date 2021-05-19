@@ -74,5 +74,10 @@ libcurl-nss.so.4 libcurl3-nss #MINVER#
  curl_strequal@CURL_NSS_3 7.23.1
  curl_strnequal@CURL_NSS_3 7.23.1
  curl_unescape@CURL_NSS_3 7.23.1
+ curl_url@CURL_NSS_3 7.58.0-2ubuntu3.13
+ curl_url_cleanup@CURL_NSS_3 7.58.0-2ubuntu3.13
+ curl_url_dup@CURL_NSS_3 7.58.0-2ubuntu3.13
+ curl_url_get@CURL_NSS_3 7.58.0-2ubuntu3.13
+ curl_url_set@CURL_NSS_3 7.58.0-2ubuntu3.13
  curl_version@CURL_NSS_3 7.23.1
  curl_version_info@CURL_NSS_3 7.23.1
