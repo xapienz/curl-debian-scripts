@@ -257,3 +257,10 @@ Description: documentation for libcurl
  successful companies and numerous applications.
  .
  This package provides the documentation files for libcurl.
+
+Package: curl34
+Architecture: any
+Depends: libcurl4 (= ${binary:Version})
+Suggests: curl
+Description: metapackage for curl34 version of libcurl4, which can be used
+ to prevent libcurl4 from being automatically upgraded to Ubuntu version.
