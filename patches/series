@@ -26,6 +26,8 @@ CVE-2020-8231.patch
 CVE-2020-8284.patch
 CVE-2020-8285.patch
 CVE-2020-8286.patch
+CVE-2021-22876.patch
+urlapi.patch
 
 # do not add patches below
 90_gnutls.patch
