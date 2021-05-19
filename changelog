@@ -1,14 +1,22 @@
-curl (7.68.0-1ubuntu2.4ppa2) focal; urgency=medium
-
-  * Update symbols.
-
- -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 14 Mar 2021 21:34:39 -0700
-
-curl (7.68.0-1ubuntu2.4ppa1) focal; urgency=medium
+curl (7.68.0-1ubuntu2.5ppa1) focal; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
+  * Added metapackage curl34.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Mon, 21 Dec 2020 01:02:04 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Tue, 18 May 2021 11:59:33 -0700
+
+curl (7.68.0-1ubuntu2.5) focal-security; urgency=medium
+
+  * SECURITY UPDATE: data leak via referer header field
+    - debian/patches/CVE-2021-22876.patch: strip credentials from the
+      auto-referer header field in lib/transfer.c.
+    - CVE-2021-22876
+  * SECURITY UPDATE: TLS 1.3 session ticket proxy host mixup
+    - debian/patches/CVE-2021-22890.patch: make sure we set and extract the
+      correct session in lib/vtls/*.
+    - CVE-2021-22890
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 23 Mar 2021 09:13:04 -0400
 
 curl (7.68.0-1ubuntu2.4) focal-security; urgency=medium
 
