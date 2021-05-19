@@ -74,5 +74,10 @@ libcurl-gnutls.so.4 libcurl3-gnutls #MINVER#
  curl_strequal@CURL_GNUTLS_3 7.16.2
  curl_strnequal@CURL_GNUTLS_3 7.16.2
  curl_unescape@CURL_GNUTLS_3 7.16.2
+ curl_url@CURL_GNUTLS_3 7.58.0-2ubuntu3.13
+ curl_url_cleanup@CURL_GNUTLS_3 7.58.0-2ubuntu3.13
+ curl_url_dup@CURL_GNUTLS_3 7.58.0-2ubuntu3.13
+ curl_url_get@CURL_GNUTLS_3 7.58.0-2ubuntu3.13
+ curl_url_set@CURL_GNUTLS_3 7.58.0-2ubuntu3.13
  curl_version@CURL_GNUTLS_3 7.16.2
  curl_version_info@CURL_GNUTLS_3 7.16.2

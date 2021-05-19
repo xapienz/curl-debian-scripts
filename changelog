@@ -1,9 +1,8 @@
-
 curl (7.58.0-2ubuntu3.13ppa1) bionic; urgency=medium
 
   * Support libcurl3 and libcurl4 at the same time.
 
- -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 13 Dec 2020 01:55:06 -0700
+ -- Evgeny Brazgin <xapienz@phystech.edu>  Tue, 18 May 2021 23:24:29 -0700
 
 curl (7.58.0-2ubuntu3.13) bionic-security; urgency=medium
 
@@ -19,18 +18,6 @@ curl (7.58.0-2ubuntu3.13) bionic-security; urgency=medium
     - CVE-2021-22876
 
  -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 23 Mar 2021 09:13:58 -0400
-
-curl (7.58.0-2ubuntu3.12ppa2) bionic; urgency=medium
-
-  * Update symbols.
-
- -- Evgeny Brazgin <xapienz@phystech.edu>  Mon, 22 Mar 2021 00:09:14 -0700
-
-curl (7.58.0-2ubuntu3.12ppa1) bionic; urgency=medium
-
-  * Support libcurl3 and libcurl4 at the same time.
-
- -- Evgeny Brazgin <xapienz@phystech.edu>  Sun, 13 Dec 2020 01:55:06 -0700
 
 curl (7.58.0-2ubuntu3.12) bionic-security; urgency=medium
 
